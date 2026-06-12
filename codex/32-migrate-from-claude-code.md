@@ -222,7 +222,7 @@ Codex 不是这套。它把「能动多大」和「问不问你」**拆成两个
 **第二，Codex 有 Claude Code 没有的东西。** 别假设功能只是「换名」，有些是新增的：
 
 - **`AGENTS.override.md`**：那一层临时盖章用的覆写文件，Claude Code 无对应物（[11] ）。
-- **Chronicle**：用屏幕内容喂记忆的实验性能力，Codex 独有（[19] ）。
+- **Chronicle**：用屏幕内容喂记忆的能力，官方目前标为「研究预览版（research preview）」、需手动开启且有地区限制，Codex 独有（[19] ）。
 - **基于 Git 的默认档选择**：启动时按「有没有 Git」自动给你选沙箱档（[15] ）。
 
 **第三，反过来，Claude Code 的个别东西在 Codex 里形态不同。** 比如 Claude Code 那套 `CLAUDE.local.md` 本地变体，Codex 用 `AGENTS.override.md` 顶替但语义不同；权限白名单那套精确控命令，Codex 对应的是实验性的 rules（写法是 Starlark，不是 JSON 数组）。
@@ -317,7 +317,7 @@ git init
 
 **第三步：让 Codex 复述它读到的指令，验证迁移成功。**
 
-在项目目录里跑（`--ask-for-approval never` 只为让输出干净，不是日常推荐）：
+在项目目录里跑（这里只读总结，加 `--ask-for-approval never` 是为免去审批打扰、让输出干净——这正是官方文档用来验证 `AGENTS.md` 是否被读到的标准做法，放心用）：
 
 ```bash
 codex --ask-for-approval never "Summarize the current instructions."

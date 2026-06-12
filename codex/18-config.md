@@ -400,7 +400,7 @@ codex --profile quick
 | 文件放哪 | 两处 | 用户级 `~/.codex/config.toml`、项目级 `<repo>/.codex/config.toml`（**信任才加载**） |
 | 冲突听谁的 | 越具体越大 | 命令行 > 项目 > profile > 用户 > 系统 > 内置 |
 | 新手必栽的限制 | 项目级有禁区 | `model_provider`/`notify`/`otel`/`profile` 等只认用户级 |
-| 常动哪几个键 | 七八个 | `model`/`approval_policy`/`sandbox_mode`/`web_search`(默认缓存)/`[features]` 等 |
+| 常动哪几个键 | 七八个 | `model`/`approval_policy`/`sandbox_mode`/`web_search`（默认缓存）/`[features]` 等 |
 | 临时改 / 切整套 | `-c` / `--profile` | `-c` 改一次不动文件，`--profile` 切一整套预设 |
 
 **你现在应该能：** 分清 `config.toml` 和 `AGENTS.md` 各管什么、知道一条配置该写用户级还是项目级、看懂六层「谁压谁」的优先级以及「项目级碰不了机器级键」这条安全限制、认识 `model`/`approval_policy`/`sandbox_mode`/`web_search`/`[features]` 这几组高频配置和它们的默认值，并且会用 `-c` 临时覆盖、`--profile` 切整套。**这套「一个文件管住所有旋钮」的能力，是你把 Codex 从「每次手动配」调成「一开机就贴合你习惯」的那把扳手。**

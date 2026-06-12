@@ -227,7 +227,7 @@ codex --sandbox workspace-write --ask-for-approval on-request
 | MCP（HTTP 服务器登录） | `codex mcp login <name>` | 仅支持 OAuth 的 streamable HTTP 服务器 |
 | 配置 MCP 服务器 | `config.toml` 里 `[mcp_servers.<id>]` | `command`/`args`/`url` 等键定义一台服务器 |
 | 子代理（并行干活） | `config.toml` 里 `[agents]` / `agents.<name>.*` | `max_threads` 默认 `6`；会话里 `/agent` 切线程 |
-| Skills（任务专用技能） | 会话里 `/skills` | 浏览并选用；`config.toml` 里 `[skills]` 做启用覆盖 |
+| Skills（任务专用技能） | 会话里 `/skills` | 浏览并选用；`config.toml` 里用 `[[skills.config]]`（带 `path`/`enabled`）做启用覆盖 |
 
 注意 `codex mcp` 整组目前标的是「实验性」，子命令和行为可能随版本变，用前以 `codex mcp --help` 为准。
 

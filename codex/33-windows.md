@@ -13,7 +13,7 @@
 **看完这一篇，你会拿到：**
 
 - 一句话结论：Windows 上最省心的跑法到底是哪种，先别纠结
-- 用 `winget` 把 Codex 装上的完整步骤，外加几个 Windows 必备前置依赖
+- 用官方 PowerShell 脚本把 Codex 装上的完整步骤，外加几个 Windows 必备前置依赖
 - 「原生 PowerShell vs WSL2」的取舍清单：你是哪种人、该选哪条路
 - Windows 特有的三个坑——路径反斜杠、`CRLF` 换行、`Everyone` 权限警告——怎么提前躲掉
 - Windows 沙箱的 `elevated` / `unelevated` 两种模式跟 Mac/Linux 的差异，以及报错 `1385` 怎么办
@@ -45,12 +45,18 @@
 
 ## 02 安装与前置依赖
 
-Windows 上装 Codex，最推荐 `winget`（Windows 自带的包管理器，类似 Mac 的 Homebrew），好处是能自动更新。
+Windows 上装 Codex CLI，官方最直接的路子是用自带的 PowerShell 安装脚本，一行就能装上。
 
 **在 PowerShell 或 Windows Terminal 里跑：**
 
 ```powershell
-winget install OpenAI.Codex
+powershell -ExecutionPolicy ByPass -c "irm https://chatgpt.com/codex/install.ps1 | iex"
+```
+
+如果你电脑上已经装了 Node.js，也可以走 npm 这条官方备选路径：
+
+```powershell
+npm install -g @openai/codex
 ```
 
 装完关掉终端重开一个，让 `PATH` 生效，然后验证：
@@ -59,26 +65,22 @@ winget install OpenAI.Codex
 codex --version
 ```
 
-预期输出是一行版本号（具体数字以你装的为准），比如：
+预期输出是一行版本号（具体数字以你装的为准），格式大致是 `codex 0.x.x`，能打印出来就说明装好了。
 
-```text
-codex-cli 0.1xx.x
-```
-
-如果 `winget` 这个命令本身就不认（提示找不到），说明你的 Windows 太旧或者没装 Windows 包管理器——官方建议先更新 Windows 或单独装一下 App Installer，再回来装 Codex。
+> 想要图形界面而不是命令行？官方还提供 Windows 桌面版 Codex app，命令行装法是 `winget install Codex -s msstore`（从 Microsoft Store 装）。本篇讲的是 CLI，下面的命令都围绕 `codex` 命令行展开。
 
 **几个前置依赖，提前备齐能少踩坑：**
 
 | 依赖 | 为什么需要 | 怎么搞定 |
 | --- | --- | --- |
 | Windows 11（推荐）| 官方首选基线，最稳 | 升级到 Win 11；Win 10 也能跑但要 1809 或更新版本 |
-| `winget` 可用 | 装 Codex、自动更新都靠它 | 缺了就更新 Windows 或装 App Installer |
+| `winget` 可用 | 装 C++ 构建工具、桌面版 app 都会用到它 | 缺了就更新 Windows 或装 App Installer |
 | 管理员审批权限 | `elevated` 沙箱的初始化要它 | 自己的电脑直接点「同意」；公司电脑可能被锁 |
 | C++ 构建工具（用 IDE 扩展时）| 部分原生依赖要编译 | `winget install --id Microsoft.VisualStudio.2022.BuildTools -e` |
 
 我自己第一次在 Windows 10 上装的时候，IDE 扩展装好了却一直「转圈不响应」，折腾了快二十分钟才在官方 FAQ 里翻到——是缺了 Visual Studio Build Tools 的 C++ 工作负载。补上那条 `winget install` 命令、重启 VS Code，立马就好了。**所以如果你也用 VS Code 里的 Codex 扩展，建议一开始就把 C++ 构建工具备上。**
 
-> 💡 一句话总结：`winget install OpenAI.Codex` 一条命令搞定主体，前置就盯紧 Windows 版本、`winget` 可用、管理员权限三样。
+> 💡 一句话总结：一条 PowerShell 安装脚本搞定 Codex CLI 主体，前置就盯紧 Windows 版本、`winget` 可用、管理员权限三样。
 
 ---
 
@@ -92,7 +94,7 @@ codex-cli 0.1xx.x
 
 | 维度 | 原生 PowerShell | WSL2 |
 | --- | --- | --- |
-| 安装难度 | ✅ 一条 `winget` 搞定 | ❌ 还要先 `wsl --install` 装发行版 |
+| 安装难度 | ✅ 一条安装脚本搞定 | ❌ 还要先 `wsl --install` 装发行版 |
 | 速度 | ✅ 原生最快 | 文件 I/O 稍慢，跨盘符更慢 |
 | 沙箱实现 | Windows 专属（`elevated`/`unelevated`）| 走 Linux 的 `bubblewrap` 沙箱 |
 | 适合的工具链 | ✅ Windows 原生工具、`.exe` | ✅ Linux 原生工具、bash 脚本 |
@@ -149,6 +151,8 @@ Windows 路径用反斜杠 `C:\Users\You\project`，Unix 用正斜杠 `/home/you
 
 ### 坑二：CRLF 换行符（开篇我栽的那个）
 
+先说清楚：这其实是 Windows 上用 Git 的通用换行问题，不是 Codex 自己的毛病，但 Codex 会改文件，所以你特别容易在它身上撞见。
+
 **类比：南北方插座。** `LF`（Unix 换行）和 `CRLF`（Windows 换行）就像两国不同制式的插座，看着都是「换行」，底层多了个 `\r`。你从 Mac/Linux 同事那 clone 来的项目是 `LF`，到了 Windows 上 Git 可能默认给你转成 `CRLF`，Codex 一改一保存，整个文件每行都「变」了，diff 直接爆炸。
 
 我当时就是这么栽的。解决办法是统一换行策略，最省事的是在项目根目录放个 `.gitattributes` 文件，让 Git 别瞎转：
@@ -167,7 +171,7 @@ git config --global core.autocrlf false
 
 ### 坑三：`Everyone` 可写权限警告
 
-原生跑的时候，Codex 可能会警告「某些文件夹对 `Everyone` 可写」。这不是 bug——它在提醒你：**这些文件夹的 Windows 权限太宽了，沙箱保护不住它们。** 处理办法是去掉那些文件夹的 `Everyone` 写权限，然后重启 Codex 或重跑一次沙箱初始化。不确定怎么改权限就找 IT,别硬来。
+原生跑的时候，Codex 可能会警告「某些文件夹对 `Everyone` 可写」。这不是 bug——它在提醒你：**这些文件夹的 Windows 权限太宽了，沙箱保护不住它们。** 处理办法是去掉那些文件夹的 `Everyone` 写权限，然后重启 Codex 或重跑一次沙箱初始化。不确定怎么改权限就找 IT，别硬来。
 
 | 坑 | 症状 | 怎么躲 |
 | --- | --- | --- |
@@ -227,6 +231,8 @@ git init
 "console.log('hi')" | Out-File -Encoding utf8 app.js
 ```
 
+> 小提醒：老版本 PowerShell（5.1）的 `Out-File -Encoding utf8` 会给文件加个 BOM 头，可能让后面的 `git diff` 多出点编码噪音。PowerShell 7+ 可以改用 `Set-Content -Encoding utf8NoBOM` 写出不带 BOM 的文件，验证换行时更干净。
+
 **第二步，先把换行符规矩立好**，免得踩开篇那个坑。在项目根目录建 `.gitattributes`：
 
 ```text
@@ -239,7 +245,7 @@ git init
 codex
 ```
 
-第一次跑原生沙箱，Windows 可能弹 UAC 管理员提示（这是 `elevated` 在做初始化）。自己的电脑点「同意」；如果是被锁的公司电脑点不了，Codex 会自动退到 `unelevated`,你会看到一行提示说切换了模式——这是正常的退路，能继续干活。
+第一次跑原生沙箱，Windows 可能弹 UAC 管理员提示（这是 `elevated` 在做初始化）。自己的电脑点「同意」；如果是被锁的公司电脑点不了，Codex 通常会自动退到 `unelevated`，你会看到一行提示说切换了模式——这是正常的退路，能继续干活。
 
 **第四步，给 Codex 派个最小任务**，在交互界面里输入：
 
@@ -278,7 +284,7 @@ git diff
 回头看这一篇，核心就这么几条：
 
 - **默认跑法**：原生 Windows + `elevated` 沙箱，官方首选，最快且安全不打折；WSL2 留给「本来就活在 Linux 里」的人。
-- **安装**：`winget install OpenAI.Codex` 一条搞定，前置盯紧 Windows 版本、`winget` 可用、管理员权限，用 IDE 扩展再备 C++ 构建工具。
+- **安装**：一条官方 PowerShell 脚本搞定 CLI，前置盯紧 Windows 版本、`winget` 可用、管理员权限，用 IDE 扩展再备 C++ 构建工具。
 - **三个特有坑**：路径写绝对、换行用 `.gitattributes` 锁成 `LF`、`Everyone` 权限警告别忽视。
 - **沙箱差异**：Windows 是独立的 `elevated` / `unelevated` 两套，跟 Mac 的 `sandbox-exec`、Linux 的 `bubblewrap` 都不一样；碰到 `1385` 多半是公司策略卡登录权限。
 
