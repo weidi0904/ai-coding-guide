@@ -41,6 +41,10 @@
 
 > 💡 一句话总结：沙箱（`--sandbox`）管「能动多大」、审批（`--ask-for-approval`）管「问不问你」，**是两个独立旋钮、在配置里也是两个分开的键**；你感受到的松紧，是这俩组合出来的。
 
+![权限的两个旋钮：沙箱档 × 审批档](assets/15-permissions/two-dimensions@2x.png)
+
+这张图把两个旋钮摆成了一张二维表：横轴是沙箱模式（从严的 `read-only` 到松的 `danger-full-access`），纵轴是审批策略（从最谨慎的 `untrusted` 到不打扰的 `never`），每个交叉格就是一种实际松紧——蓝框那格 `workspace-write + on-request` 是日常黄金组合，右下角红框那格 `danger-full-access + never`（也就是 `--yolo`）则只该在隔离容器里碰。
+
 ---
 
 ## 02 三种沙箱模式：能动多大，这一档说了算

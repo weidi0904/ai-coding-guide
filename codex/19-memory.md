@@ -253,6 +253,12 @@ use_memories = true
 
 > 💡 **一句话总结**：Chronicle 是 Codex 独有、用**屏幕内容**喂记忆的**实验性**能力，**仅 Pro + macOS、不含 EU/UK/瑞士**，要屏幕录制 + 辅助功能权限；开之前看懂三条警告——**吃配额快、提示注入风险大、记忆明文存本地**；敏感内容前用菜单栏 **Pause Chronicle** ；截图临时存（6 小时清）、记忆在 `~/.codex/memories_extensions/chronicle/` 、服务器处理完即弃且不训练。
 
+把这两套记忆并排画出来，谁从哪学、存哪、怎么开，一张图就清楚了：
+
+![两套记忆：Memories 与 Chronicle](assets/19-memory/memory-system@2x.png)
+
+这张图把 Codex 的两套记忆摆在一起：左边 **Memories** 从你和 Codex 的对话里学、存 `~/.codex/memories/` 、默认关（写 `memories = true` 开）；右边 **Chronicle** 从你的屏幕内容里学、存 `~/.codex/memories_extensions/chronicle/` 、是仅 Pro + macOS 的实验性能力——两条最后都汇进「新会话的上下文」，让 Codex 一开工就「记得你」。
+
 ---
 
 ## 06 动手：开 Memories、攒一条、验证它生效

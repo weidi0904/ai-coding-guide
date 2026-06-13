@@ -70,6 +70,12 @@
 
 > 💡 一句话总结：`openai/codex-action` 是官方做的「即开即用工具箱」——在 CI 任务里替你装好 Codex CLI、起好代理、跑一条底层的 `codex exec`；它靠 workflow 的 `on:` **事件触发**（不是 @ 评论），最适合自动审 PR、卡质量门、跑可重复任务。
 
+把这条路的整体走向画成一张图，你心里就更有数了：
+
+![自动化：GitHub Action 触发 codex exec](assets/27-automation/cicd-flow@2x.png)
+
+这张图就是这条路的全貌——**左边三类仓库事件（push、Pull Request、定时 cron）任意一个命中，就触发 workflow；workflow 在云端 runner 上按你指定的权限跑那条非交互的 `codex exec`；跑完吐出对应产出（贴回 PR 的审查评论、提交的代码修改、或一份报告 / 简报）**。整条链路全程不用你在场，记住「谁触发 → 在哪跑 → 吐什么」这三段，后面拆 YAML 就只是给每一段填细节。
+
 ---
 
 ## 03 最小 workflow：拆开官方那份「审 PR」的 YAML

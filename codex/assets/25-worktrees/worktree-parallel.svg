@@ -1,0 +1,72 @@
+<svg viewBox="0 0 920 590" xmlns="http://www.w3.org/2000/svg">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap');
+  text { font-family: 'JetBrains Mono', 'Noto Sans SC', 'PingFang SC', sans-serif; }
+</style>
+<defs>
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.5"/>
+  </pattern>
+  <marker id="arrow-violet" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+    <polygon points="0 0, 10 3.5, 0 7" fill="#a78bfa"/>
+  </marker>
+</defs>
+<rect width="100%" height="100%" fill="#0f172a"/>
+<rect width="100%" height="100%" fill="url(#grid)"/>
+
+<!-- 连线：共享仓库 派生 三个 worktree（实线带箭头，表示 派生 / 检出） -->
+<line x1="460" y1="162" x2="165" y2="298" stroke="#a78bfa" stroke-width="1.5" marker-end="url(#arrow-violet)"/>
+<line x1="460" y1="162" x2="445" y2="298" stroke="#a78bfa" stroke-width="1.5" marker-end="url(#arrow-violet)"/>
+<line x1="460" y1="162" x2="725" y2="298" stroke="#a78bfa" stroke-width="1.5" marker-end="url(#arrow-violet)"/>
+
+<!-- ===== masking rects（盖住框内连线） ===== -->
+<rect x="350" y="88" width="220" height="74" rx="8" fill="#0f172a"/>
+<rect x="40" y="300" width="250" height="160" rx="8" fill="#0f172a"/>
+<rect x="320" y="300" width="250" height="160" rx="8" fill="#0f172a"/>
+<rect x="600" y="300" width="250" height="160" rx="8" fill="#0f172a"/>
+
+<!-- ===== 共享 Git 仓库（tertiary / violet：共享存储 / 元数据） ===== -->
+<rect x="350" y="88" width="220" height="74" rx="8" fill="rgba(76,29,149,0.4)" stroke="#a78bfa" stroke-width="1.5"/>
+<text x="460" y="118" fill="white" font-size="13" font-weight="600" text-anchor="middle">同一个 Git 仓库</text>
+<text x="460" y="138" fill="#94a3b8" font-size="9" text-anchor="middle">共享 .git · 提交历史 / 分支</text>
+<text x="460" y="153" fill="#94a3b8" font-size="9" text-anchor="middle">一套元数据，多份工作目录</text>
+
+<!-- ===== Worktree A（primary / cyan） ===== -->
+<rect x="40" y="300" width="250" height="160" rx="8" fill="rgba(8,51,68,0.4)" stroke="#22d3ee" stroke-width="1.5"/>
+<text x="165" y="328" fill="white" font-size="12" font-weight="600" text-anchor="middle">Worktree A</text>
+<text x="165" y="349" fill="#cbd5e1" font-size="9" text-anchor="middle">分支 feature/ui</text>
+<text x="165" y="364" fill="#94a3b8" font-size="9" text-anchor="middle">独立工作目录 · 全套文件副本</text>
+<!-- Codex 任务 pill -->
+<rect x="64" y="388" width="202" height="48" rx="6" fill="#0f172a"/>
+<rect x="64" y="388" width="202" height="48" rx="6" fill="rgba(59,130,246,0.18)" stroke="#60a5fa" stroke-width="1.2"/>
+<text x="165" y="409" fill="#bfdbfe" font-size="10" font-weight="600" text-anchor="middle">Codex 任务 ①</text>
+<text x="165" y="425" fill="#94a3b8" font-size="9" text-anchor="middle">改前端样式</text>
+
+<!-- ===== Worktree B（secondary / emerald） ===== -->
+<rect x="320" y="300" width="250" height="160" rx="8" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5"/>
+<text x="445" y="328" fill="white" font-size="12" font-weight="600" text-anchor="middle">Worktree B</text>
+<text x="445" y="349" fill="#cbd5e1" font-size="9" text-anchor="middle">分支 fix/api</text>
+<text x="445" y="364" fill="#94a3b8" font-size="9" text-anchor="middle">独立工作目录 · 全套文件副本</text>
+<rect x="344" y="388" width="202" height="48" rx="6" fill="#0f172a"/>
+<rect x="344" y="388" width="202" height="48" rx="6" fill="rgba(59,130,246,0.18)" stroke="#60a5fa" stroke-width="1.2"/>
+<text x="445" y="409" fill="#bfdbfe" font-size="10" font-weight="600" text-anchor="middle">Codex 任务 ②</text>
+<text x="445" y="425" fill="#94a3b8" font-size="9" text-anchor="middle">修后端 bug</text>
+
+<!-- ===== Worktree C（accent / amber） ===== -->
+<rect x="600" y="300" width="250" height="160" rx="8" fill="rgba(120,53,15,0.3)" stroke="#fbbf24" stroke-width="1.5"/>
+<text x="725" y="328" fill="white" font-size="12" font-weight="600" text-anchor="middle">Worktree C</text>
+<text x="725" y="349" fill="#cbd5e1" font-size="9" text-anchor="middle">分支 test/cov</text>
+<text x="725" y="364" fill="#94a3b8" font-size="9" text-anchor="middle">独立工作目录 · 全套文件副本</text>
+<rect x="624" y="388" width="202" height="48" rx="6" fill="#0f172a"/>
+<rect x="624" y="388" width="202" height="48" rx="6" fill="rgba(59,130,246,0.18)" stroke="#60a5fa" stroke-width="1.2"/>
+<text x="725" y="409" fill="#bfdbfe" font-size="10" font-weight="600" text-anchor="middle">Codex 任务 ③</text>
+<text x="725" y="425" fill="#94a3b8" font-size="9" text-anchor="middle">补一批测试</text>
+
+<!-- ===== 标题 ===== -->
+<text x="30" y="40" fill="white" font-size="16" font-weight="700">Worktree · 并行隔离</text>
+<text x="30" y="58" fill="#94a3b8" font-size="9">同一仓库派生多份独立工作目录，几个 Codex 各干各的</text>
+
+<!-- ===== 底部注解（在所有框之外） ===== -->
+<text x="460" y="505" fill="#94a3b8" font-size="9" text-anchor="middle">各 worktree 各有独立分支与全套文件，谁改谁的副本——碰不到别人那份</text>
+<text x="460" y="540" fill="#fbbf24" font-size="11" font-weight="600" text-anchor="middle">并行开工，互不打架 —— 后写的不会盖掉先写的</text>
+</svg>

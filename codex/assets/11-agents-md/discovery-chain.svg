@@ -1,0 +1,62 @@
+<svg viewBox="0 0 880 600" xmlns="http://www.w3.org/2000/svg">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap');
+  text { font-family: 'JetBrains Mono', 'Noto Sans SC', 'PingFang SC', sans-serif; }
+</style>
+<defs>
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.5"/>
+  </pattern>
+  <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+    <polygon points="0 0, 10 3.5, 0 7" fill="#64748b"/>
+  </marker>
+  <marker id="arrow-blue" markerWidth="11" markerHeight="8" refX="9" refY="4" orient="auto">
+    <polygon points="0 0, 11 4, 0 8" fill="#60a5fa"/>
+  </marker>
+</defs>
+<rect width="100%" height="100%" fill="#0f172a"/>
+<rect width="100%" height="100%" fill="url(#grid)"/>
+
+<!-- 标题 -->
+<text x="30" y="42" fill="white" font-size="16" font-weight="700">AGENTS.md · 三层发现链</text>
+<text x="30" y="61" fill="#94a3b8" font-size="9">从全局到当前目录逐层叠加，越靠近当前目录优先级越高（就近覆盖）</text>
+
+<!-- 层间向下叠加箭头 -->
+<line x1="300" y1="190" x2="300" y2="242" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="300" y1="336" x2="300" y2="388" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="316" y="220" fill="#94a3b8" font-size="9">拼接叠加</text>
+<text x="316" y="366" fill="#94a3b8" font-size="9">拼接叠加</text>
+
+<!-- 右侧优先级轴 -->
+<line x1="690" y1="478" x2="690" y2="104" stroke="#60a5fa" stroke-width="2" marker-end="url(#arrow-blue)"/>
+<text x="706" y="104" fill="#60a5fa" font-size="10" font-weight="600">优先级</text>
+<text x="706" y="120" fill="#60a5fa" font-size="10" font-weight="600">越高</text>
+<text x="706" y="470" fill="#64748b" font-size="9">越远</text>
+<text x="706" y="483" fill="#64748b" font-size="9">越弱</text>
+
+<!-- masking rects（盖住穿过框的连线） -->
+<rect x="110" y="104" width="380" height="86" rx="8" fill="#0f172a"/>
+<rect x="110" y="250" width="380" height="86" rx="8" fill="#0f172a"/>
+<rect x="110" y="396" width="380" height="86" rx="8" fill="#0f172a"/>
+
+<!-- 第一层：全局层（neutral / slate，个人/全局范围） -->
+<rect x="110" y="104" width="380" height="86" rx="8" fill="rgba(30,41,59,0.5)" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="300" y="132" fill="white" font-size="13" font-weight="600" text-anchor="middle">全局层　~/.codex/AGENTS.md</text>
+<text x="300" y="154" fill="#94a3b8" font-size="9" text-anchor="middle">你的个人约定，对所有项目生效</text>
+<text x="300" y="171" fill="#94a3b8" font-size="9" text-anchor="middle">override 优先 · 只取一个非空文件</text>
+
+<!-- 第二层：仓库根（secondary / emerald，项目范围） -->
+<rect x="110" y="250" width="380" height="86" rx="8" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5"/>
+<text x="300" y="278" fill="white" font-size="13" font-weight="600" text-anchor="middle">仓库根　&lt;repo&gt;/AGENTS.md</text>
+<text x="300" y="300" fill="#94a3b8" font-size="9" text-anchor="middle">团队项目级规矩，盖过个人偏好</text>
+<text x="300" y="317" fill="#94a3b8" font-size="9" text-anchor="middle">从 Git 根逐级往下扫 · 每目录挑一个</text>
+
+<!-- 第三层：子目录（highlight / blue，当前目录、最高优先） -->
+<rect x="110" y="396" width="380" height="86" rx="8" fill="rgba(59,130,246,0.3)" stroke="#60a5fa" stroke-width="2"/>
+<text x="300" y="424" fill="white" font-size="13" font-weight="600" text-anchor="middle">子目录　&lt;cwd&gt;/AGENTS.md</text>
+<text x="300" y="446" fill="#cbd5e1" font-size="9" text-anchor="middle">离当前目录最近，冲突时它说了算</text>
+<text x="300" y="463" fill="#cbd5e1" font-size="9" text-anchor="middle">排在拼接结果最末 · 就近覆盖上层</text>
+
+<!-- 底部注解 -->
+<text x="300" y="556" fill="#fbbf24" font-size="10" font-weight="500" text-anchor="middle">三层同时生效、从根到叶拼接 —— 是「叠加」不是「替换」，冲突条目以更近的为准</text>
+</svg>

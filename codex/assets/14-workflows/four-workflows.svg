@@ -1,0 +1,72 @@
+<svg viewBox="0 0 920 600" xmlns="http://www.w3.org/2000/svg">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap');
+  text { font-family: 'JetBrains Mono', 'Noto Sans SC', 'PingFang SC', sans-serif; }
+</style>
+<defs>
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.5"/>
+  </pattern>
+</defs>
+<rect width="100%" height="100%" fill="#0f172a"/>
+<rect width="100%" height="100%" fill="url(#grid)"/>
+
+<!-- 标题 -->
+<text x="30" y="42" fill="white" font-size="16" font-weight="700">Codex · 四类日常工作流</text>
+<text x="30" y="62" fill="#94a3b8" font-size="9">日常 80% 的活儿就这四类 —— 先按「动不动代码」分清性格，各有各的打法</text>
+
+<!-- ===== 框 1：探索代码库（primary / cyan，只读零风险） ===== -->
+<rect x="40" y="110" width="400" height="200" rx="8" fill="#0f172a"/>
+<rect x="40" y="110" width="400" height="200" rx="8" fill="rgba(8,51,68,0.4)" stroke="#22d3ee" stroke-width="1.5"/>
+<text x="58" y="138" fill="white" font-size="14" font-weight="700">探索代码库</text>
+<rect x="346" y="120" width="78" height="22" rx="11" fill="rgba(8,51,68,0.6)" stroke="#22d3ee" stroke-width="1"/>
+<text x="385" y="135" fill="#22d3ee" font-size="9" font-weight="600" text-anchor="middle">只读 · 零风险</text>
+<line x1="40" y1="152" x2="440" y2="152" stroke="#22d3ee" stroke-width="0.5" stroke-opacity="0.5"/>
+<text x="58" y="178" fill="#cbd5e1" font-size="11">核心要点：从大到小三层问下去</text>
+<text x="58" y="204" fill="#94a3b8" font-size="10">· 整体架构 → 定位模块 → 追踪某条流程</text>
+<text x="58" y="230" fill="#94a3b8" font-size="10">· IDE 自动看打开的文件，CLI 用 @ 点出</text>
+<text x="58" y="256" fill="#94a3b8" font-size="10">· 全程切只读，让它只讲不改</text>
+<text x="58" y="288" fill="#22d3ee" font-size="10" font-weight="500">你最该盯：它讲得对不对</text>
+
+<!-- ===== 框 2：修 bug（alert / rose，最容易翻车） ===== -->
+<rect x="480" y="110" width="400" height="200" rx="8" fill="#0f172a"/>
+<rect x="480" y="110" width="400" height="200" rx="8" fill="rgba(136,19,55,0.4)" stroke="#fb7185" stroke-width="1.5"/>
+<text x="498" y="138" fill="white" font-size="14" font-weight="700">修 bug</text>
+<rect x="780" y="120" width="84" height="22" rx="11" fill="rgba(136,19,55,0.55)" stroke="#fb7185" stroke-width="1"/>
+<text x="822" y="135" fill="#fb7185" font-size="9" font-weight="600" text-anchor="middle">动代码 · 易翻车</text>
+<line x1="480" y1="152" x2="880" y2="152" stroke="#fb7185" stroke-width="0.5" stroke-opacity="0.5"/>
+<text x="498" y="178" fill="#cbd5e1" font-size="11">核心要点：先找根因，再上把锁</text>
+<text x="498" y="204" fill="#94a3b8" font-size="10">· 给复现配方 → 先复现 → 定位根因</text>
+<text x="498" y="230" fill="#94a3b8" font-size="10">· 改最小补丁，别动函数签名 / API</text>
+<text x="498" y="256" fill="#94a3b8" font-size="10">· 跑 lint + 补回归测试（这就是锁）</text>
+<text x="498" y="288" fill="#fb7185" font-size="10" font-weight="500">你最该盯：根因找对没、有没有验证</text>
+
+<!-- ===== 框 3：重构（accent / amber，风险最高） ===== -->
+<rect x="40" y="350" width="400" height="200" rx="8" fill="#0f172a"/>
+<rect x="40" y="350" width="400" height="200" rx="8" fill="rgba(120,53,15,0.3)" stroke="#fbbf24" stroke-width="1.5"/>
+<text x="58" y="378" fill="white" font-size="14" font-weight="700">重构</text>
+<rect x="340" y="360" width="84" height="22" rx="11" fill="rgba(120,53,15,0.5)" stroke="#fbbf24" stroke-width="1"/>
+<text x="382" y="375" fill="#fbbf24" font-size="9" font-weight="600" text-anchor="middle">行为不变 · 风险高</text>
+<line x1="40" y1="392" x2="440" y2="392" stroke="#fbbf24" stroke-width="0.5" stroke-opacity="0.5"/>
+<text x="58" y="418" fill="#cbd5e1" font-size="11">核心要点：对外行为一个字都不能变</text>
+<text x="58" y="444" fill="#94a3b8" font-size="10">· 先出分步计划，磨清每步动哪些文件</text>
+<text x="58" y="470" fill="#94a3b8" font-size="10">· 没测试先补测试，把现有行为拍快照</text>
+<text x="58" y="496" fill="#94a3b8" font-size="10">· 小步改，别一口气推翻重写</text>
+<text x="58" y="528" fill="#fbbf24" font-size="10" font-weight="500">你最该盯：改完行为有没有变</text>
+
+<!-- ===== 框 4：写测试（secondary / emerald，加文件） ===== -->
+<rect x="480" y="350" width="400" height="200" rx="8" fill="#0f172a"/>
+<rect x="480" y="350" width="400" height="200" rx="8" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5"/>
+<text x="498" y="378" fill="white" font-size="14" font-weight="700">写测试</text>
+<rect x="786" y="360" width="78" height="22" rx="11" fill="rgba(6,78,59,0.6)" stroke="#34d399" stroke-width="1"/>
+<text x="825" y="375" fill="#34d399" font-size="9" font-weight="600" text-anchor="middle">加文件 · 不碰原码</text>
+<line x1="480" y1="392" x2="880" y2="392" stroke="#34d399" stroke-width="0.5" stroke-opacity="0.5"/>
+<text x="498" y="418" fill="#cbd5e1" font-size="11">核心要点：逼它覆盖边界情况</text>
+<text x="498" y="444" fill="#94a3b8" font-size="10">· 正常路径 + 空值 / 单元素 / null / 超大值</text>
+<text x="498" y="470" fill="#94a3b8" font-size="10">· 遵循现有测试约定，风格自动对齐</text>
+<text x="498" y="496" fill="#94a3b8" font-size="10">· 再让它补你没想到的边界</text>
+<text x="498" y="528" fill="#34d399" font-size="10" font-weight="500">你最该盯：边界情况覆盖全没</text>
+
+<!-- 底部总纲注解 -->
+<text x="460" y="585" fill="#60a5fa" font-size="10" font-weight="500" text-anchor="middle">一条总纲贯穿四类 —— 都要给 Codex 留一个能自我验证的口子，它就不靠「看起来对」交差</text>
+</svg>

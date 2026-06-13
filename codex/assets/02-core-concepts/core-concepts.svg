@@ -1,0 +1,84 @@
+<svg viewBox="0 0 920 600" xmlns="http://www.w3.org/2000/svg">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap');
+  text { font-family: 'JetBrains Mono', 'Noto Sans SC', 'PingFang SC', sans-serif; }
+</style>
+<defs>
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.5"/>
+  </pattern>
+  <marker id="arrow-emerald" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+    <polygon points="0 0, 10 3.5, 0 7" fill="#34d399"/>
+  </marker>
+  <marker id="arrow-rose" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+    <polygon points="0 0, 10 3.5, 0 7" fill="#fb7185"/>
+  </marker>
+  <marker id="arrow-violet" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+    <polygon points="0 0, 10 3.5, 0 7" fill="#a78bfa"/>
+  </marker>
+</defs>
+<rect width="100%" height="100%" fill="#0f172a"/>
+<rect width="100%" height="100%" fill="url(#grid)"/>
+
+<!-- 沙箱：区域边界（虚线圈住代理能动手的范围） -->
+<rect x="235" y="205" width="355" height="190" rx="14" fill="rgba(120,53,15,0.12)" stroke="#fbbf24" stroke-width="1.5" stroke-dasharray="8,4"/>
+<text x="250" y="227" fill="#fbbf24" font-size="11" font-weight="600">沙箱（Sandbox）· 它能动手的圈</text>
+
+<!-- 连线（先于框，后被 masking rect 盖住框内部分） -->
+<!-- AGENTS.md → 代理：喂入项目规矩 -->
+<line x1="200" y1="300" x2="309" y2="300" stroke="#34d399" stroke-width="1.8" marker-end="url(#arrow-emerald)"/>
+<!-- 代理 →（撞上）审批关卡 -->
+<line x1="485" y1="300" x2="509" y2="300" stroke="#94a3b8" stroke-width="1.8"/>
+<!-- 审批 → 外部世界：批准后才放行 -->
+<line x1="665" y1="300" x2="714" y2="300" stroke="#fb7185" stroke-width="1.8" marker-end="url(#arrow-rose)"/>
+<!-- 代理 ↔ 记忆：攒经验 / 下次复用 -->
+<line x1="375" y1="337" x2="375" y2="464" stroke="#a78bfa" stroke-width="1.8" marker-end="url(#arrow-violet)"/>
+<line x1="425" y1="470" x2="425" y2="343" stroke="#a78bfa" stroke-width="1.8" marker-end="url(#arrow-violet)"/>
+
+<!-- masking rects（盖住框内的连线） -->
+<rect x="315" y="263" width="170" height="74" rx="10" fill="#0f172a"/>
+<rect x="515" y="268" width="150" height="64" rx="8" fill="#0f172a"/>
+<rect x="35" y="260" width="165" height="80" rx="8" fill="#0f172a"/>
+<rect x="720" y="268" width="160" height="64" rx="8" fill="#0f172a"/>
+<rect x="295" y="470" width="210" height="80" rx="8" fill="#0f172a"/>
+
+<!-- 代理（highlight / blue）—— 居中主角 -->
+<rect x="315" y="263" width="170" height="74" rx="10" fill="rgba(59,130,246,0.3)" stroke="#60a5fa" stroke-width="2"/>
+<text x="400" y="294" fill="white" font-size="15" font-weight="700" text-anchor="middle">代理（Agent）</text>
+<text x="400" y="314" fill="#cbd5e1" font-size="9" text-anchor="middle">想 → 做 → 看，在圈里干活</text>
+
+<!-- 审批（alert / rose）—— 骑在沙箱边界上，出圈关卡 -->
+<rect x="515" y="268" width="150" height="64" rx="8" fill="rgba(136,19,55,0.4)" stroke="#fb7185" stroke-width="1.5"/>
+<text x="590" y="295" fill="white" font-size="12" font-weight="600" text-anchor="middle">审批（Approval）</text>
+<text x="590" y="313" fill="#94a3b8" font-size="9" text-anchor="middle">出圈关卡 · 问不问你</text>
+
+<!-- AGENTS.md（secondary / emerald）—— 喂指令 -->
+<rect x="35" y="260" width="165" height="80" rx="8" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5"/>
+<text x="117" y="290" fill="white" font-size="12" font-weight="600" text-anchor="middle">AGENTS.md</text>
+<text x="117" y="309" fill="#94a3b8" font-size="9" text-anchor="middle">项目入职手册</text>
+<text x="117" y="324" fill="#94a3b8" font-size="9" text-anchor="middle">开工前先读的规矩</text>
+
+<!-- 外部世界（neutral / slate）—— 出圈后到达 -->
+<rect x="720" y="268" width="160" height="64" rx="8" fill="rgba(30,41,59,0.5)" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="800" y="295" fill="white" font-size="12" font-weight="600" text-anchor="middle">外部世界</text>
+<text x="800" y="313" fill="#94a3b8" font-size="9" text-anchor="middle">你整台机器 / 网络</text>
+
+<!-- 记忆 / Chronicle（tertiary / violet）—— 跨会话攒经验 -->
+<rect x="295" y="470" width="210" height="80" rx="8" fill="rgba(76,29,149,0.4)" stroke="#a78bfa" stroke-width="1.5"/>
+<text x="400" y="500" fill="white" font-size="12" font-weight="600" text-anchor="middle">记忆（Memory）/ Chronicle</text>
+<text x="400" y="519" fill="#94a3b8" font-size="9" text-anchor="middle">跨会话攒下的经验</text>
+<text x="400" y="534" fill="#94a3b8" font-size="9" text-anchor="middle">默认关 · 锦上添花</text>
+
+<!-- 连线标签 -->
+<text x="254" y="291" fill="#34d399" font-size="8.5" font-weight="500">喂入规矩</text>
+<text x="690" y="291" fill="#fb7185" font-size="8.5" font-weight="500">批准才放行</text>
+<text x="318" y="408" fill="#a78bfa" font-size="8.5" font-weight="500" text-anchor="end">攒经验</text>
+<text x="432" y="408" fill="#a78bfa" font-size="8.5" font-weight="500">下次复用</text>
+
+<!-- 标题 -->
+<text x="30" y="42" fill="white" font-size="16" font-weight="700">Codex · 五个核心概念怎么搭在一起</text>
+<text x="30" y="60" fill="#94a3b8" font-size="9.5">代理在沙箱里干活，出圈要审批；AGENTS.md 喂指令，记忆攒经验</text>
+
+<!-- 底部注解 -->
+<text x="460" y="582" fill="#fbbf24" font-size="10" font-weight="500" text-anchor="middle">一句话：沙箱管「能不能」、审批管「问不问」、AGENTS.md 立规矩、记忆攒经验 —— 都围着中间这个代理转</text>
+</svg>

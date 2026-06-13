@@ -118,6 +118,10 @@ flowchart TB
     E --> F["内置默认值<br/>(兜底)"]
 ```
 
+![config 六层优先级（高压低）](assets/18-config/precedence@2x.png)
+
+这张图把六层配置按优先级从高到低竖着摞起来：最上面「命令行参数 / `--config`」最具体、压力最大，往下依次是项目级、`--profile` 预设档、用户级、系统级，最底下是兜底的内置默认值——**上层会盖掉下层写了同一个键的部分**，所以越靠上、越「具体到当下」的设置就越说了算。
+
 一句话记牢这个顺序：**越「具体到当下」的越大，越「全局兜底」的越小**。命令行（就这一次）压项目（就这项目），项目压预设档，预设档压用户全局，用户压系统，系统压内置兜底。官方点了句最实用的用法：
 
 > Use that precedence to set shared defaults in `config.toml` and keep profile files focused on the values that differ.（用这套优先级把共享默认放在 `config.toml` ，让 profile 文件只装那些不一样的值。）

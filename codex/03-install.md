@@ -154,6 +154,12 @@ npm install -g @openai/codex
 
 > 💡 一句话总结：CLI 闭眼选官方脚本，**Mac/Linux 用 `curl ... | sh`，Windows 用 `irm`**，独立二进制不依赖 Node；Homebrew / npm 是备选，npm 尽量别 `sudo`。
 
+两条安装线讲完了，用一张图把它们并排摆出来对照：
+
+![两条安装线：桌面 App 与 CLI](assets/03-install/install-flow@2x.png)
+
+这张图把桌面 App 和 CLI 两条线并排画出来：**左线下载安装包、打开、在 App 里登录；右线装好 codex、跑 `codex login`**，两条路最后都汇到同一个终点——「登录成功、可用」，登录都可二选一走 ChatGPT 账号或 API key。
+
 ---
 
 ## 04 Windows 用户：原生还是 WSL？
