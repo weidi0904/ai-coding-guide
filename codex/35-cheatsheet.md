@@ -195,7 +195,7 @@ codex --sandbox workspace-write --ask-for-approval on-request
 
 | 模型 | 定位 | 什么时候用 |
 | --- | --- | --- |
-| `gpt-5.5` | 旗舰，最强 | 复杂编码、重构、研究类硬活 |
+| `gpt-5.5` | 旗舰，最强 | 复杂编程、重构、研究类硬活 |
 | `gpt-5.4-mini` | 轻量、快、省 | 杂活、批量任务、子代理 |
 | `gpt-5.3-codex-spark` | 即时型研究预览（仅 ChatGPT Pro） | 求近乎秒回的实时迭代 |
 
@@ -207,7 +207,7 @@ codex --sandbox workspace-write --ask-for-approval on-request
 | --- | --- | --- |
 | `minimal` | 几乎不想，最快 | 改 typo、重命名、跑个命令 |
 | `low` | 略想一下 | 小修小补 |
-| `medium` | 默认甜区 | 绝大多数日常编码 |
+| `medium` | 默认甜区 | 绝大多数日常编程 |
 | `high` | 深思熟虑 | 多文件改动、设计权衡 |
 | `xhigh` | 顶格（模型相关） | 真·硬骨头，确定值得等 |
 

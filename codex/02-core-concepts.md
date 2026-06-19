@@ -22,7 +22,7 @@
 
 ## 01 代理（Agent）：它会自己动手，不只是回你话
 
-先说结论，一句话：**Codex 是 OpenAI 的「编码代理（coding agent）」，能自己读代码、改文件、跑命令，而不只是给你回一段文字。** 官方原话就是 "OpenAI's coding agent that can read, edit, and run code"。
+先说结论，一句话：**Codex 是 OpenAI 的「编程代理（coding agent）」，能自己读代码、改文件、跑命令，而不只是给你回一段文字。** 官方原话就是 "OpenAI's coding agent that can read, edit, and run code"。
 
 这里的「代理（Agent）」是关键词，第一次见得解释一句：**代理 = 能自己拆解任务、调工具、看结果、再决定下一步的 AI，不是一问一答的聊天框。**
 

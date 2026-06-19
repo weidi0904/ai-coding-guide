@@ -59,7 +59,7 @@
 <rect x="540" y="350" width="240" height="100" rx="8" fill="rgba(120,53,15,0.3)" stroke="#fbbf24" stroke-width="2"/>
 <text x="660" y="377" fill="white" font-size="14" font-weight="700" text-anchor="middle">gpt-5.5</text>
 <text x="660" y="397" fill="#fde68a" font-size="10" font-weight="600" text-anchor="middle">旗舰 · 默认推荐</text>
-<text x="660" y="416" fill="#94a3b8" font-size="9" text-anchor="middle">复杂编码、跨模块重构、难缠 bug</text>
+<text x="660" y="416" fill="#94a3b8" font-size="9" text-anchor="middle">复杂编程、跨模块重构、难缠 bug</text>
 <text x="660" y="433" fill="#fbbf24" font-size="9" font-weight="600" text-anchor="middle">较慢 / 最高（最强但最贵）</text>
 
 <!-- ============ 挑选指引（底部一行金句，绘图区之外） ============ -->
