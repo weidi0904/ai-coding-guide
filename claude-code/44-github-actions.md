@@ -298,9 +298,9 @@ anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
 正确做法就一条：**用 GitHub Secrets，绝不硬编码。** 官方给的步骤很清楚：
 
 > - 将您的 API 密钥添加为名为 `ANTHROPIC_API_KEY` 的仓库密钥
-> - 在工作流中引用它：`anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}`
+> - 在工作流中引用它：<code v-pre>anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}</code>
 
-**类比：把钥匙锁进保险柜，YAML 里只留个取钥匙的暗号。** GitHub Secrets 就是仓库自带的保险柜——你把真实 key 锁进去，它加密存着、不会显示在任何日志或界面里。workflow 文件里你写的 `${{ secrets.ANTHROPIC_API_KEY }}` 不是密钥本身，**只是一句「去保险柜把那把叫 ANTHROPIC_API_KEY 的钥匙取出来用」的暗号**。文件可以大大方方提交、公开，因为里面压根没有真东西。
+**类比：把钥匙锁进保险柜，YAML 里只留个取钥匙的暗号。** GitHub Secrets 就是仓库自带的保险柜——你把真实 key 锁进去，它加密存着、不会显示在任何日志或界面里。workflow 文件里你写的 <code v-pre>${{ secrets.ANTHROPIC_API_KEY }}</code> 不是密钥本身，**只是一句「去保险柜把那把叫 ANTHROPIC_API_KEY 的钥匙取出来用」的暗号**。文件可以大大方方提交、公开，因为里面压根没有真东西。
 
 怎么把 key 存进这个保险柜？手动的话：打开仓库的 **Settings → Secrets and variables → Actions**，点 **New repository secret**，名字填 `ANTHROPIC_API_KEY`，值填你的真实 key（从 [Claude Console](https://console.anthropic.com) 拿，第 04 篇讲过）。如果你前面用了 `/install-github-app`，这一步它已经替你办好了。
 
@@ -315,7 +315,7 @@ anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
 
 最后一行的「合并前自己审一遍」值得专门强调——**Claude 干得再好，它开的 PR 也只是「一个贡献者的提交」，不是免审金牌**。官方原话：「在合并前审查 Claude 的建议」。一条值得守住的铁规矩是：**云端 Claude 开的 PR，一律当成实习生交的活来审**，绝不因为「是 AI 写的看着挺像样」就闭眼合。
 
-> 💡 一句话总结：密钥红线就一条——**绝不把真实 key 写进仓库**，而是存进 **GitHub Secrets**（加密保险柜），YAML 里只用 `${{ secrets.ANTHROPIC_API_KEY }}` 这个暗号引用；再配上「最小权限 + 合并前必审 + 警惕提示注入」三条，才算把云端这套用得稳。
+> 💡 一句话总结：密钥红线就一条——**绝不把真实 key 写进仓库**，而是存进 **GitHub Secrets**（加密保险柜），YAML 里只用 <code v-pre>${{ secrets.ANTHROPIC_API_KEY }}</code> 这个暗号引用；再配上「最小权限 + 合并前必审 + 警惕提示注入」三条，才算把云端这套用得稳。
 
 ---
 
@@ -389,7 +389,7 @@ anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
 | 装上它 | 本地跑 `/install-github-app` | 要管理员权限 + 直接 API；给三项读写工牌 |
 | 配触发与行为 | `.github/workflows/` 的 YAML | `on` 定何时、`claude_args` 传参；v1 自动检测模式 |
 | 选用例 | review / 按 issue 改 / 定时 | **给 prompt 自动跑，不给等 @claude** |
-| 保护密钥 | GitHub Secrets | **绝不硬编码**，YAML 只用 `${{ secrets.* }}` 引用 |
+| 保护密钥 | GitHub Secrets | **绝不硬编码**，YAML 只用 <code v-pre>${{ secrets.* }}</code> 引用 |
 
 **你现在应该能：** 说清 GitHub Actions 版 Claude Code 和本地版的区别、在 PR / issue 里用 `@claude` 派活（还不会打成 `/claude`）、看懂并改一份最小 workflow YAML、按「自动 review / 按 issue 改 / 定时」三种需求挑对配置、把 API key 安全地锁进 GitHub Secrets，并亲手把这套装进自己的仓库验证跑通。**这套云端自动化，是你让 Claude 从「桌上的助手」升级成「团队里 24 小时在岗的一员」的那一步。**
 

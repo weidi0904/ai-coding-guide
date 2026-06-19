@@ -233,9 +233,9 @@ openai-api-key: ${{ secrets.OPENAI_API_KEY }}
 
 为啥这是红线？**因为 GitHub 仓库——尤其公开仓库——是全世界都能看的。** 你要是图省事，把真实的 key 直接写进 YAML 提交上去，等于**把家门钥匙的照片发到了朋友圈**：扫密钥的爬虫一刻不停，扫到就能拿你的 key 疯狂调 API，账单全算你头上。
 
-**类比：把钥匙锁进保险柜，YAML 里只留个取钥匙的暗号。** GitHub Secrets 就是仓库自带的保险柜——你把真实 key 锁进去，它加密存着、不显示在任何日志或界面里。workflow 里写的 `${{ secrets.OPENAI_API_KEY }}` 不是 key 本身，**只是一句「去保险柜把那把叫 OPENAI_API_KEY 的钥匙取出来用」的暗号**。文件可以大大方方提交、公开，因为里面压根没真东西。
+**类比：把钥匙锁进保险柜，YAML 里只留个取钥匙的暗号。** GitHub Secrets 就是仓库自带的保险柜——你把真实 key 锁进去，它加密存着、不显示在任何日志或界面里。workflow 里写的 <code v-pre>${{ secrets.OPENAI_API_KEY }}</code> 不是 key 本身，**只是一句「去保险柜把那把叫 OPENAI_API_KEY 的钥匙取出来用」的暗号**。文件可以大大方方提交、公开，因为里面压根没真东西。
 
-怎么存进保险柜？打开仓库的 **Settings → Secrets and variables → Actions**，点 **New repository secret**，名字填 `OPENAI_API_KEY`，值填你的真实 key（从你的 OpenAI 账号拿，第 04 篇讲过认证那套），保存。之后 workflow 用 `${{ secrets.OPENAI_API_KEY }}` 引用即可。
+怎么存进保险柜？打开仓库的 **Settings → Secrets and variables → Actions**，点 **New repository secret**，名字填 `OPENAI_API_KEY`，值填你的真实 key（从你的 OpenAI 账号拿，第 04 篇讲过认证那套），保存。之后 workflow 用 <code v-pre>${{ secrets.OPENAI_API_KEY }}</code> 引用即可。
 
 ### 第二条（比「别硬编码」更细的红线）：别把 key 设成 job 级环境变量
 
