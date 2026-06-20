@@ -95,7 +95,7 @@ version: 1.117.3
 
 `description` 写得越贴近你的真实说法，触发越准。这也是为什么下一节排查「喊不动」，第一个要查的就是它。
 
-![一句话喊起 skill 的内部流程：从你说话到照菜谱干活](assets/27-skills-in-practice/skill-trigger-flow@2x.png)
+![一句话喊起 skill 的内部流程：从你说话到照菜谱干活](assets/27-skill-trigger-flow@2x.png)
 
 这张图把「一句话怎么变成 skill 干活」拆成四步：你说话 → Claude 拿去和每个 skill 的 `description` 比对 → 命中后加载对应 `SKILL.md` 正文 → 照里面写死的步骤产出结果。看懂这条链，你就知道排查该从哪一环下手。
 
@@ -129,8 +129,8 @@ claude
 
 ```text
 已生成图表：
-  docs/assets/agent-loop/agent-loop.svg
-  docs/assets/agent-loop/agent-loop@2x.png
+  docs/claude-code/assets/27-agent-loop.svg
+  docs/claude-code/assets/27-agent-loop@2x.png
 ```
 
 **看到这两个文件 = skill 触发成功、活也干完了。** 整个过程你没碰任何参数，全靠一句大白话。

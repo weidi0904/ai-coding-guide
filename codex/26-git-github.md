@@ -201,7 +201,7 @@ Codex review 完，挂了一条 P1 在 PR 上。接下来呢？**你可以再留
 
 到这儿，GitHub 侧这条审查线就完整了，串成一张图是这样的：
 
-![@codex review 代码审查流程](assets/26-git-github/review-flow@2x.png)
+![@codex review 代码审查流程](assets/26-review-flow@2x.png)
 
 这张图把第 02～05 节连成一条环：**PR 一创建 / 更新，要么你打 `@codex review` 召唤、要么开了自动审查直接触发；Codex 在云端读这个 PR 的 diff、对照仓库 `AGENTS.md` 里就近那份审查规矩；最后像队友一样把问题挂回对应代码行，且在 GitHub 侧只标 P0 / P1；你一句 `@codex fix` 让它改完，又回到流程头上再审一轮。**
 

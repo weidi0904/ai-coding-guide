@@ -105,7 +105,7 @@ CLAUDE.md、Skill、Hook、MCP、Subagent，外加随处可见的斜杠命令（
 
 我把判断顺序设计成下面这棵树。核心就四个问题，按这个顺序问，基本不会错：
 
-![从需求出发挑扩展点的决策树](assets/30-choosing-features/feature-decision-tree@2x.png)
+![从需求出发挑扩展点的决策树](assets/30-feature-decision-tree@2x.png)
 
 这张图把「我有个需求，该用哪个扩展点」拆成一条自上而下的问答路径——先问「要不要硬保证/连外部」，再问「该它自动还是你主动」，一路分叉走到底，每个叶子节点就是一个明确的扩展点。
 

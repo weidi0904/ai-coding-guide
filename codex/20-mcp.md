@@ -46,7 +46,7 @@
 
 > 💡 一句话总结：Codex 默认只会碰本地文件和命令，**够不着你的设计稿、最新文档、浏览器**；MCP 是那个统一外接口，接一次就把一堆外部工具摆到它面前，而且会读 server 自带的 `instructions` 当使用须知。
 
-![MCP：统一对接外部工具](assets/20-mcp/mcp-hub@2x.png)
+![MCP：统一对接外部工具](assets/20-mcp-hub@2x.png)
 
 > 图：Codex 本地只能碰文件和命令；MCP 像 USB hub，一头插进 Codex，另一头把 GitHub、数据库、Figma 这类外部 server 统一接进来。
 

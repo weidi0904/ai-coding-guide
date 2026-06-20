@@ -49,7 +49,7 @@
 
 > 💡 一句话总结：Worktree 是为了让**同一仓库里互不相干的活同时开工又不互相覆盖**（像给每个医生发一份病历复本），铁律只有一条——**别让它们在同一份文件上抢笔**，否则越并行越乱。
 
-![Worktrees：多任务并行不打架](assets/25-worktrees/worktree-parallel@2x.png)
+![Worktrees：多任务并行不打架](assets/25-worktree-parallel@2x.png)
 
 上图：同一 Git 仓库派生三份独立 worktree，三个 Codex 任务各占一份、互不覆盖。
 

@@ -55,7 +55,7 @@
 
 在编辑器里按 `Cmd+Shift+X`（Mac）或 `Ctrl+Shift+X`（Windows / Linux）打开扩展视图。**这里是全篇第一个坑**：很多人顺手搜 `Codex`，结果跳出一堆第三方小插件，就是不见官方那条。原因是——**官方扩展的 ID 是 `openai.chatgpt`，发布者（publisher）是 OpenAI**。搜 `Codex` 或 `ChatGPT` 都行，但认准发布者是 **OpenAI** 的那条再点安装，别装成仿冒的。
 比如 VS Code 中搜 codex：
-![VS Code 扩展市场搜 codex，认准发布者 OpenAI 的官方扩展](assets/09-ide/extension-marketplace.png)
+![VS Code 扩展市场搜 codex，认准发布者 OpenAI 的官方扩展](assets/09-extension-marketplace.png)
 
 **方式二：点链接直装**
 
@@ -149,7 +149,7 @@ Extension 'openai.chatgpt' was successfully installed.
 
 这一节是扩展里你最该搞清楚的开关。还记得 02 篇讲的「沙箱 + 审批」吗？在 CLI 里它们是两个维度分开拧；**在扩展里，官方把它简化成了输入框下方一个三档的「审批模式（approval mode）」切换器**，点一下就换，不用碰配置文件。
 
-![Codex 扩展输入框下方的三档审批模式切换器](assets/09-ide/approval-switcher.png)
+![Codex 扩展输入框下方的三档审批模式切换器](assets/09-approval-switcher.png)
 
 官方定义的三档是这样的：
 

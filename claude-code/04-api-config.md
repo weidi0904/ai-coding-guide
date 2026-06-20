@@ -129,7 +129,7 @@ Windows（PowerShell，永久写入用户环境变量）：
 | 5 | `CLAUDE_CODE_OAUTH_TOKEN` | CI 里用的长期令牌 |
 | 6（最低） | `/login` 的订阅凭证 | **个人订阅默认走这层** |
 
-![身份验证优先级栈：Claude Code 从顶往下找第一个有值的层](assets/04-api-config/auth-priority-stack@2x.png)
+![身份验证优先级栈：Claude Code 从顶往下找第一个有值的层](assets/04-auth-priority-stack@2x.png)
 
 这张图把上面那张表「立」了起来：6 层凭证从高到低竖直堆叠，Claude Code 从栈顶往下扫，跳过所有「空」的层，停在第一个「有值」的层就用它——个人订阅场景下，上面 5 层都空，于是命中最底层的订阅登录。
 

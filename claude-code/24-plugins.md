@@ -166,7 +166,7 @@
 
 > 💡 一句话总结：插件带进来的组件分「你主动喊」（skill/命令）和「它自动干」（hook/MCP/LSP）两类；**装前在详情里看「将安装」清单和上下文成本，装后 `/reload-plugins` 生效**。
 
-![插件市场两步走与插件打包的五类组件](assets/24-plugins/plugin-overview@2x.png)
+![插件市场两步走与插件打包的五类组件](assets/24-plugin-overview@2x.png)
 
 这张图把本篇的两条主线画在一起：左边是「加市场 → 装插件」的两步流程，右边是一个插件盒子打包的五类组件（skill、subagent、hook、MCP server、LSP server），以及它们装进来后分别是「你主动喊」还是「它自动干」。
 

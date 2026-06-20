@@ -126,15 +126,15 @@ Codex 把所有配置放在一个文件里：`~/.codex/config.toml` （这是 Co
 
  **CC Switch**（一款免费开源的跨平台桌面工具，GitHub 仓库 [github.com/farion1231/cc-switch](https://github.com/farion1231/cc-switch) ）走的就是这条路：在本机起代理，把 Codex 的请求透明转发到你选的后端，还内置了 DeepSeek 等常见平台的预设，省得你手填。
 
-![CC Switch 主界面](assets/05-third-party-models/ccswitch.png)
+![CC Switch 主界面](assets/05-ccswitch.png)
 
 安装 CC Switch 后，打开主界面，点击「Add Provider」或对应的「+」入口，进入提供商配置页。
 
-![CC Switch 安装后进入的主页面](assets/05-third-party-models/add-provider.png)
+![CC Switch 安装后进入的主页面](assets/05-add-provider.png)
 
 这张图是添加提供商的入口页面。在左侧列表里选中你想配置的工具（这里选 Codex），右侧会展开该工具的「Provider」设置区——在这里选择你要接入的后端（DeepSeek 等）、填入对应的 API Key，保存后 CC Switch 就会把 Codex 的请求透明转发到你选的平台。
 
-![CC Switch 配置供应商：一长串预设后端可选](assets/05-third-party-models/add-provider2.png)
+![CC Switch 配置供应商：一长串预设后端可选](assets/05-add-provider2.png)
 
 这张图展示的是选择后端时的预设列表——DeepSeek、OpenRouter 等常见平台都内置了，不用手填地址和协议细节，选中填 Key 即可。
 

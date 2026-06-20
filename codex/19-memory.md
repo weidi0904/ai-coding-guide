@@ -259,7 +259,7 @@ use_memories = true
 
 把这两套记忆并排画出来，谁从哪学、存哪、怎么开，一张图就清楚了：
 
-![两套记忆：Memories 与 Chronicle](assets/19-memory/memory-system@2x.png)
+![两套记忆：Memories 与 Chronicle](assets/19-memory-system@2x.png)
 
 这张图把 Codex 的两套记忆摆在一起：左边 **Memories** 从你和 Codex 的对话里学、存 `~/.codex/memories/` 、默认关（写 `memories = true` 开）；右边 **Chronicle** 从你的屏幕内容里学、存 `~/.codex/memories_extensions/chronicle/` 、是仅 Pro + macOS 的实验性能力——两条最后都汇进「新会话的上下文」，让 Codex 一开工就「记得你」。
 

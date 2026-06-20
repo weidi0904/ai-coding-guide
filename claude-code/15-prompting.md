@@ -42,7 +42,7 @@
 
 > 💡 **一句话总结**：烂提问烂在「信息缺口全靠 Claude 脑补」，**好提问就是把它要猜的，你提前说清楚**。
 
-![烂提问 vs 好提问：同一个需求两种问法](assets/15-prompting/prompt-before-after@2x.png)
+![烂提问 vs 好提问：同一个需求两种问法](assets/15-prompt-before-after@2x.png)
 
 这张 Before/After 把同一个需求的两种问法摆到一起：**左边模糊提问，Claude 只能脑补、反问一堆；右边把范围、上下文（`@文件`）、验收标准三件套给齐，它一次命中、直接跑测试通过**。差距不在 Claude，在你怎么说。
 

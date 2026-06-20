@@ -91,7 +91,7 @@ my-skill/
 
 所以你可以放心大胆地往 Skill 正文里写长篇参考资料、详细检查清单——**用到之前，它几乎不花成本**。这正是官方建议「把内容做成 Skill 而不是全塞进 `CLAUDE.md`」的原因：`CLAUDE.md` 是一开会话就全程驻留的，Skill 正文是用到才来。
 
-![Skill 渐进式披露：平时只占一句 description，用到才加载全文](assets/26-agent-skills/progressive-disclosure@2x.png)
+![Skill 渐进式披露：平时只占一句 description，用到才加载全文](assets/26-progressive-disclosure@2x.png)
 
 这张图把「渐进式披露」两阶段画清楚了：左边是会话常态——三个 Skill 在上下文里**各只占一句 description**，工作台还很空；右边是某个 description 被你的提问命中后，**只有那一个 Skill 的完整正文被加载**进来，其余两个仍然只是一行。一眼看出「省」在哪。
 

@@ -81,7 +81,7 @@ my-skill/
 
 这就是为什么你可以放心往 Skill 正文里写长篇检查清单、详细参考——**用到之前，它几乎不花成本**。
 
-![Skills 渐进式披露两阶段](assets/22-skills/progressive-disclosure@2x.png)
+![Skills 渐进式披露两阶段](assets/22-progressive-disclosure@2x.png)
 
 两列并排：左边阶段一，启动时每个 Skill 只占「名称 + 一句描述 + 文件路径」；右边阶段二，只有被任务命中的那一个 Skill 才把完整 `SKILL.md` 展开读入，其余照旧只占一行。
 

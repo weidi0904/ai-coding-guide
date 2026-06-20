@@ -78,7 +78,7 @@ codex --model gpt-5.5 --cd ~/my-project "把 README 补全"
 
 **类比：看直播带货的画面。** 中间一大片是主播在演示（**对话区**，Codex 在这儿讲它的计划、贴代码、显示 diff）；最底下那条输入框是你打字发弹幕的地方（**输入框**，你所有指令从这儿进）；屏幕角落那行小字显示「在线人数、当前商品」（**状态栏**，显示当前模型、上下文用了多少、在哪个目录）。你看直播不用盯满屏，认住这三块就跟得上节奏。
 
-![Codex CLI 的 TUI 界面：对话区、输入框、状态栏三块](assets/08-cli/tui-three-zones.png)
+![Codex CLI 的 TUI 界面：对话区、输入框、状态栏三块](assets/08-tui-three-zones.png)
 
 逐块拆开：
 
@@ -220,7 +220,7 @@ codex
 
 **预期**：Codex 打印出当前会话的概况——用的哪个模型、审批策略是啥、有哪些可写目录、上下文还剩多少。心里先有个底，知道自己现在是什么配置。
 
-![token-tracker 显示用量：项目名、token 剩余、上下文占比、当前模型](assets/08-cli/tui-output.png)
+![token-tracker 显示用量：项目名、token 剩余、上下文占比、当前模型](assets/08-tui-output.png)
 
 社区的 token-tracker 工具也能以图形化方式呈现类似信息（见上图），显示项目名称、5 小时 token 剩余量、一周使用剩余量、上下文占比、当前模型等字段。
 

@@ -268,7 +268,7 @@ cat calc.py
 
 > 💡 **一句话总结**：修 bug 全流程亲手跑一遍——**埋个真 bug、套模板让它先找根因再改、看着它补测试跑绿**，跑通这一类，另外三类照葫芦画瓢就会。
 
-![四类常用工作流速查卡](assets/16-common-workflows/four-workflows@2x.png)
+![四类常用工作流速查卡](assets/16-four-workflows@2x.png)
 
 ---
 

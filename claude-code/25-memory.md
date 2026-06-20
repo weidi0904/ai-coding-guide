@@ -48,7 +48,7 @@
 
 > 💡 一句话总结：记忆分两套——**CLAUDE.md 你手写规矩、自动记忆它自己记心得**；两套都只是软提示，想真正拦死操作得靠权限或 hook，不是写进记忆就万事大吉。
 
-![Claude Code 两套记忆系统：你写的 CLAUDE.md 与它自己写的自动记忆](assets/25-memory/memory-system@2x.png)
+![Claude Code 两套记忆系统：你写的 CLAUDE.md 与它自己写的自动记忆](assets/25-memory-system@2x.png)
 
 这张图把两条记忆通路并排画出来：左边是你手写、全量加载进上下文的 CLAUDE.md（项目守则）；右边是 Claude 工作时自己往 `MEMORY.md` 里记、下次会话自动读回前 200 行的自动记忆（私人笔记）。两条线最后都汇进「新会话的上下文窗口」，让它一开工就「记得你」。
 
